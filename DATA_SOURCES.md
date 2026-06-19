@@ -20,6 +20,20 @@ the authoritative, most current figures.
   EPSG:32643 to EPSG:4326 (WGS84). Raw `latitude`/`longitude` columns are
   retained as-supplied.
 
+## `mandi_prices/agmarknet_crop_prices_daily.csv.gz`
+- **What:** Daily market (mandi) prices by commodity × state — min/max/modal
+  price per day (`Rs/Quintal`). Columns: `t` (date), `cmdty`/`commodity_name`,
+  `state`/`state_name`, `state_id`, `commodity_id`, `category_id`, `p_min`,
+  `p_max`, `p_modal`. Covers 2020-04-01 to 2025-03-31 (~2.07M rows, 361
+  commodities, 31 states). gzip-compressed (~199 MB uncompressed).
+- **Granularity note:** Prices are daily, aggregated to the **state** level
+  (across all markets within a state); there is no per-market/per-district
+  breakdown in this file. The `monthly` file below is a month-level rollup of
+  this same data.
+- **Original source:** Agmarknet (Directorate of Marketing & Inspection,
+  Department of Agriculture & Farmers Welfare, Ministry of Agriculture &
+  Farmers Welfare, Government of India).
+
 ## `mandi_prices/agmarknet_crop_prices_monthly.csv`
 - **What:** Monthly market (mandi) prices aggregated by commodity × state ×
   month — modal/min/max average prices with standard deviation and record counts.
