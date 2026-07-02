@@ -20,16 +20,31 @@ the authoritative, most current figures.
   EPSG:32643 to EPSG:4326 (WGS84). Raw `latitude`/`longitude` columns are
   retained as-supplied.
 
+## `mandi_prices/daily/agmarknet_mandi_prices_daily_<YYYY>.csv.gz`
+- **What:** Daily **market (mandi)-level** prices, one gzip file per calendar
+  year (2021–2026). Each row is a commodity × variety × market × day
+  observation with min/max/modal price and arrival quantity. Columns:
+  `arrival_date`, `state_id`, `state_name`, `market_category_id`,
+  `market_category`, `commodity_group`, `commodity`, `market`, `variety`,
+  `min_price`, `max_price`, `modal_price`, `price_unit`, `arrivals`,
+  `arrival_unit`.
+- **Coverage:** 2021-06-24 → 2026-06-24, every day present (~21.0M rows total,
+  ~2.9 GB uncompressed). This is the finest granularity available — individual
+  market yards, not a state/district rollup.
+- **Original source:** Agmarknet daily price & arrival reports (Directorate of
+  Marketing & Inspection, Department of Agriculture & Farmers Welfare, Ministry
+  of Agriculture & Farmers Welfare, Government of India).
+
 ## `mandi_prices/agmarknet_crop_prices_daily.csv.gz`
-- **What:** Daily market (mandi) prices by commodity × state — min/max/modal
-  price per day (`Rs/Quintal`). Columns: `t` (date), `cmdty`/`commodity_name`,
+- **What:** Daily prices by commodity × **state** — min/max/modal price per day
+  (`Rs/Quintal`). Columns: `t` (date), `cmdty`/`commodity_name`,
   `state`/`state_name`, `state_id`, `commodity_id`, `category_id`, `p_min`,
   `p_max`, `p_modal`. Covers 2020-04-01 to 2025-03-31 (~2.07M rows, 361
   commodities, 31 states). gzip-compressed (~199 MB uncompressed).
-- **Granularity note:** Prices are daily, aggregated to the **state** level
-  (across all markets within a state); there is no per-market/per-district
-  breakdown in this file. The `monthly` file below is a month-level rollup of
-  this same data.
+- **Granularity note:** State-level (aggregated across all markets within a
+  state); no per-market breakdown. For market-level daily data see the
+  `daily/agmarknet_mandi_prices_daily_<YYYY>.csv.gz` files above. The `monthly`
+  file below is a month-level rollup of this state-level series.
 - **Original source:** Agmarknet (Directorate of Marketing & Inspection,
   Department of Agriculture & Farmers Welfare, Ministry of Agriculture &
   Farmers Welfare, Government of India).
