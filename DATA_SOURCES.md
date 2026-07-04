@@ -1,24 +1,32 @@
 # Data Sources & Attribution
 
-The MIT `LICENSE` in this repository covers the **compilation, processing, and
-formatting** of these datasets (the scripts and the cleaned/normalized CSVs as
-arranged here).
+The MIT `LICENSE` in this repository covers **only** the compilation, processing,
+and formatting of these datasets (the scripts and the cleaned/normalized CSVs as
+arranged here). It does **not** cover the underlying data.
 
-The **underlying data** originates from Government of India / public sources.
-Those original sources retain their own rights and terms (typically the
-Government Open Data License – India (GODL) or equivalent). Please credit the
-original sources when you reuse this data, and consult the original portals for
-the authoritative, most current figures.
+The **underlying data** originates from Government of India public sources,
+published under the **Government Open Data License – India (GODL)**:
+https://www.data.gov.in/Godl
+
+Please credit the original sources listed below when reusing this data, and
+consult the original portals for the authoritative, most current figures. Each
+dataset's original source, access link, and license are listed individually so
+they can be reviewed and approved one at a time.
+
+---
 
 ## `cce_yield/crop_cutting.csv`
 - **What:** Crop Cutting Experiment (CCE) yield observations from the General
   Crop Estimation Survey (GCES). Point-level crop yield by district / sub-district
   / village (LGD codes), crop, season, and year (2023–2024), with WGS84 coordinates.
-- **Original source:** Government of India crop estimation survey programme
-  (Ministry of Agriculture & Farmers Welfare / DA&FW, GCES/CCE).
 - **Geometry:** `geom_wkt_wgs84` column is reprojected from the source
   EPSG:32643 to EPSG:4326 (WGS84). Raw `latitude`/`longitude` columns are
   retained as-supplied.
+- **Original source:** General Crop Estimation Survey (GCES/CCE), Department of
+  Agriculture & Farmers Welfare (DA&FW), Ministry of Agriculture & Farmers
+  Welfare, Government of India.
+- **Link:** https://www.data.gov.in/sector/Agriculture
+- **License:** Government Open Data License – India (GODL) — https://www.data.gov.in/Godl
 
 ## `mandi_prices/daily/agmarknet_mandi_prices_daily_<YYYY>.csv.gz`
 - **What:** Daily **market (mandi)-level** prices, one gzip file per calendar
@@ -31,9 +39,11 @@ the authoritative, most current figures.
 - **Coverage:** 2021-06-24 → 2026-06-24, every day present (~21.0M rows total,
   ~2.9 GB uncompressed). This is the finest granularity available — individual
   market yards, not a state/district rollup.
-- **Original source:** Agmarknet daily price & arrival reports (Directorate of
-  Marketing & Inspection, Department of Agriculture & Farmers Welfare, Ministry
-  of Agriculture & Farmers Welfare, Government of India).
+- **Original source:** Agmarknet daily price & arrival reports, Directorate of
+  Marketing & Inspection, DA&FW, Ministry of Agriculture & Farmers Welfare,
+  Government of India.
+- **Link:** https://agmarknet.gov.in
+- **License:** Government Open Data License – India (GODL) — https://www.data.gov.in/Godl
 
 ## `mandi_prices/agmarknet_crop_prices_daily.csv.gz`
 - **What:** Daily prices by commodity × **state** — min/max/modal price per day
@@ -45,22 +55,24 @@ the authoritative, most current figures.
   state); no per-market breakdown. For market-level daily data see the
   `daily/agmarknet_mandi_prices_daily_<YYYY>.csv.gz` files above. The `monthly`
   file below is a month-level rollup of this state-level series.
-- **Original source:** Agmarknet (Directorate of Marketing & Inspection,
-  Department of Agriculture & Farmers Welfare, Ministry of Agriculture &
-  Farmers Welfare, Government of India).
+- **Original source:** Agmarknet, Directorate of Marketing & Inspection, DA&FW,
+  Ministry of Agriculture & Farmers Welfare, Government of India.
+- **Link:** https://agmarknet.gov.in
 
 ## `mandi_prices/agmarknet_crop_prices_monthly.csv`
 - **What:** Monthly market (mandi) prices aggregated by commodity × state ×
   month — modal/min/max average prices with standard deviation and record counts.
-- **Original source:** Agmarknet (Directorate of Marketing & Inspection,
-  Department of Agriculture & Farmers Welfare, Ministry of Agriculture &
-  Farmers Welfare, Government of India).
+- **Original source:** Agmarknet, Directorate of Marketing & Inspection, DA&FW,
+  Ministry of Agriculture & Farmers Welfare, Government of India.
+- **Link:** https://agmarknet.gov.in
 
 ## `mandi_prices/msp_food_grains.csv` & `mandi_prices/msp_non_food_grains.csv`
 - **What:** Minimum Support Prices (MSP) by crop category and fiscal year,
   used as a price fallback where market data is unavailable.
-- **Original source:** Commission for Agricultural Costs and Prices (CACP) /
-  Ministry of Agriculture & Farmers Welfare, Government of India.
+- **Original source:** Commission for Agricultural Costs and Prices (CACP),
+  DA&FW, Ministry of Agriculture & Farmers Welfare, Government of India.
+- **Link:** https://www.data.gov.in/catalog/minimum-support-priceprocurement-price-crops-crop-year-basis
+- **License:** Government Open Data License – India (GODL) — https://www.data.gov.in/Godl
 
 ---
 
